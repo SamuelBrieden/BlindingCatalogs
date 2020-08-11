@@ -1,4 +1,4 @@
-### BlindingCatalogs ###
+# BlindingCatalogs
 
 A repository of original and blinded galaxy catalog power spectrum measurements from BOSS DR12 data and Patchy Mocks and the corresponding BAO (pre- and post reconstruction) and RSD fit results.
 
@@ -19,23 +19,23 @@ BOSS DR12: https://www.sdss.org/dr12/
 The folder structure is as follows: On top level, there are the surveys (either BOSS data or Patchy Mocks), in the next level there are folders for either the original or the blinded cases. Then, there are folders corresponding to Measurements (either pre- or postreconstruction) and Bestfit files (either for BAO prerecon only for Patchy Mocks), BAO postrecon or RSD (full shape) fits). All files follow the naming convention "filespecifier_identifier", where "identifier" relates to the galaxy Sample used (LOWZ or CMASS) and other details depending on the configuration during the blinding, reconstruction and analysis steps. In the following you find an explanation of the different file types and their format. Units for wavevector k and power spectra Pk are always h/Mpc and Mpc^3/h^3 respectively
 
 
-### Format specifications
+# Format specifications
 
-# Measurements
+## Measurements
 These are all files starting with filespecifier="Power_Spectrum". They contain a LARGE header with ALL the relevant information on how the measurement has been obtained from the catalog. There are 9 columns corresponding to:
 "k-centerbin	 k-eff	 Monopole-Pshotnoise	 Dipole	 Quadrupole	 Octopole	 Hexadecapole	 number of modes	 Pshotnoise"
 
-# Bestfits
+## Bestfits
 There are three different types of files for each fit: One starts with filespecifier="logfilemcmc" and contains information on mcmc runtime, number of steps convergence, and derived mean +/- sigma of each parameter as well, their bestfit value and the correlation matrix. The order of parameters is the same as in Table 3 of reference https://arxiv.org/abs/2006.10857. The Monopole and Quadrupole of the actual Bestfit models are plotted in files filespecifier="Monopole12" and filespecifier="Quadrupole12". The columns are:
 "k 	 P_l(data) 	 1-sigma-error 	 P_l(model)"
 
-# Chains (accessible via the Google Drive link above)
+## Chains (accessible via the Google Drive link above)
 For BOSS DR12: filespecifier="mcmc<fittype>_output"
 For Patchy Mocks: filespecifier="mcmc<fittype>_tail"
 To save resources, for the Patchy Mock realizations I only include the last 10.000 points of each of the 6 chains (therefore named "tail"), while I include the full chains in the BOSS DR12 case. The columns are:
 "mcmc-weight    chi^2    parameters" 
 
-### Some more details
+# Some more details
 When going through the files you will see some parts in the names that have not been explained yet, here I present those parts of the identifiers to understand where the name comes from:
 - "diffz": Means that the measurements on blinded catalogs were obtained using the "shifted redshift cuts" convention as suggested in the paper.
 - "SameCovmat": Means that the same covariance matrix has been used on the blinded catalogs as for the original catalogs
@@ -47,5 +47,3 @@ When going through the files you will see some parts in the names that have not 
 Let me know if you have any questions:
 sbrieden@icc.ub.edu
 
-
-### BlindingCatalogs ###
